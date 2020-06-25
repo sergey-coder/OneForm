@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1800.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllEmployeePage">
+   <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="78.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="50.0">
+      <image>
+         <Image url="@../image/logoRos2.png" />
+      </image>
+   </ImageView>
+   <AnchorPane layoutX="334.0" layoutY="57.0" prefHeight="1094.0" prefWidth="1226.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="334.0" AnchorPane.topAnchor="57.0">
+      <children>
+         <TextArea fx:id="ResultDocument" layoutX="446.0" layoutY="256.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <font>
+               <Font size="17.0" />
+            </font></TextArea>
+      </children></AnchorPane>
+   <Button fx:id="battonLoad" layoutX="89.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#getFileChooser" prefHeight="36.0" prefWidth="180.0" text="выбрать  документ">
+      <font>
+         <Font size="14.0" />
+      </font></Button>
+   <Button fx:id="createDoc" layoutX="89.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#getCreateDoc" onMouseEntered="#goalMause3" onMouseExited="#notGoalMause3" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: #098BF3;" text="создать документ" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font></Button>
+   <ChoiceBox fx:id="selectJob" layoutX="89.0" layoutY="202.0" prefHeight="25.0" prefWidth="180.0" />
+   <Label layoutX="89.0" layoutY="168.0" prefHeight="17.0" prefWidth="180.0" text="выбор должности">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <ChoiceBox layoutX="89.0" layoutY="274.0" prefHeight="25.0" prefWidth="180.0" />
+   <Text layoutX="89.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="выбор типа создавамого документа">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Text fx:id="nameSelectFiles" layoutX="89.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="231.9912314414978" />
+
+</AnchorPane>

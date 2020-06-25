@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jpedal-4.45-b-105">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../jpedal-4.45-b-105.jar!/" />
+      <root url="jar://$PROJECT_DIR$/postgresql-42.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
