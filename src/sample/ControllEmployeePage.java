@@ -136,48 +136,70 @@ public class ControllEmployeePage implements Initializable {
         enterData.GetDataset1();
         // создаем список объектов
         int x = enterData.DataSet1.getMetaData().getColumnCount();
-        ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList(
-
-
+        String a1="";
+        String a2="";
+        String a3="";
+        String a4="";
+        String a5="";
+        String a6="";
+        String a7="";
+        int i2 =1;
+        ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList();
 
 
         while(enterData.DataSet1.next()){
 
             for(int i=1; i<=x;i++){
-                for(int i2=1; i2<=7;i2++){
+                    switch (i2){
+                        case 1 : if(enterData.DataSet1.getString(i)==null){
+                            a1 = "null"; break;
+                        } a1 = enterData.DataSet1.getString(i); break;
 
-
-                }
+                        case 2 : if(enterData.DataSet1.getString(i)==null){
+                            a2 = "null"; break;
+                        } a2 = enterData.DataSet1.getString(i); break;
+                        case 3 : if(enterData.DataSet1.getString(i)==null){
+                            a3 = "null"; break;
+                        }a3 = enterData.DataSet1.getString(i); break;
+                        case 4 : if(enterData.DataSet1.getString(i)==null){
+                            a4 = "null"; break;
+                        }a4 = enterData.DataSet1.getString(i); break;
+                        case 5 : if(enterData.DataSet1.getString(i)==null){
+                            a5 = "null"; break;
+                        } a5 = enterData.DataSet1.getString(i); break;
+                        case 6 : if(enterData.DataSet1.getString(i)==null){
+                            a6 = "null"; break;
+                        } a6 = enterData.DataSet1.getString(i); break;
+                        case 7 :if(enterData.DataSet1.getString(i)==null){
+                            a7 = "null"; break;
+                        } a7 = enterData.DataSet1.getString(i); break;
+                        default: break;
+                    }
+                    i2++;
+                    if(i2==8){
+                        listDataset1.add(new CreateInstructionDataSet1(a1,a2,a3,a4,a5,a6,a7));
+                        i2=1;
+                    }
 
             }
-            new CreateInstructionDataSet1(enterData.DataSet2.getString(i))
+
         }
-
-                new Person("Tom", 34),
-                new Person("Bob", 22),
-                new Person("Sam", 28),
-                new Person("Alice", 29)
-        private String id;
-
-        private String author;
-
-        private String name;
-
-        private String can;
-
-        private String feh;
-
-        private String disp;
-
-        private String rank;
-        );
+        for(CreateInstructionDataSet1 list : listDataset1){
+            System.out.println("переменная а1 =  " + list.getAuthor());
+            System.out.println("переменная а2 =  " + list.getCan());
+            System.out.println("переменная а3 =  " + list.getDisp());
+            System.out.println("переменная а4 =  " + list.getFeh());
+            System.out.println("переменная а5 =  " + list.getId());
+            System.out.println("переменная а6 =  " + list.getRank());
+            System.out.println("переменная а7 =  " + list.getName());
+        }
          
     }
 
     public void getCreateDoc(MouseEvent mouseEvent) throws SQLException {
         selectJobName = selectJob.getValue();
         BuilderDoc();
-        ResultDocument.setText(str);
+        //ResultDocument.setText(str);
     }
     public void getSaveDoc(MouseEvent mouseEvent) {
         saveText = ResultDocument.getText();
