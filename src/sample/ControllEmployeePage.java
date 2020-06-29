@@ -48,6 +48,7 @@ public class ControllEmployeePage implements Initializable {
     @FXML
     public Text nameSelectFiles;
     public Button SaveDoc;
+    public TableView tableVeiw;
 
     String nameSelectFile;  // тут хранится  абсолютный путь до выбранного файла
 
@@ -106,7 +107,7 @@ public class ControllEmployeePage implements Initializable {
     }
 
     //реализация кнопки "создать документ"________________________________________________________
-    public void BuilderDoc() throws SQLException {
+    /*public void BuilderDoc() throws SQLException {
         str = "";
         StringBuilder text = new StringBuilder();
         InOutGUI enterData = new InOutGUI();
@@ -129,8 +130,49 @@ public class ControllEmployeePage implements Initializable {
             }
         }
         str =text.toString();
-    }
+    }*/
+    public void BuilderDoc() throws SQLException {
+        InOutGUI enterData = new InOutGUI();
+        enterData.GetDataset1();
+        // создаем список объектов
+        int x = enterData.DataSet1.getMetaData().getColumnCount();
+        ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList(
 
+
+
+
+        while(enterData.DataSet1.next()){
+
+            for(int i=1; i<=x;i++){
+                for(int i2=1; i2<=7;i2++){
+
+
+                }
+
+            }
+            new CreateInstructionDataSet1(enterData.DataSet2.getString(i))
+        }
+
+                new Person("Tom", 34),
+                new Person("Bob", 22),
+                new Person("Sam", 28),
+                new Person("Alice", 29)
+        private String id;
+
+        private String author;
+
+        private String name;
+
+        private String can;
+
+        private String feh;
+
+        private String disp;
+
+        private String rank;
+        );
+         
+    }
 
     public void getCreateDoc(MouseEvent mouseEvent) throws SQLException {
         selectJobName = selectJob.getValue();
