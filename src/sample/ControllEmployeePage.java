@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.beans.property.SimpleSetProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,12 +15,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableView;
 
 import java.awt.*;
 import java.io.File;
@@ -49,6 +58,13 @@ public class ControllEmployeePage implements Initializable {
     public Text nameSelectFiles;
     public Button SaveDoc;
     public TableView tableVeiw;
+    public TableColumn <CreateInstructionDataSet1,String> Column1;
+    public TableColumn <CreateInstructionDataSet1,String>Column2;
+    public TableColumn <CreateInstructionDataSet1,String>Column3;
+    public TableColumn <CreateInstructionDataSet1,String>Column4;
+    public TableColumn <CreateInstructionDataSet1,String>Column5;
+    public TableColumn <CreateInstructionDataSet1,String>Column6;
+    public TableColumn <CreateInstructionDataSet1,String>Column7;
 
     String nameSelectFile;  // тут хранится  абсолютный путь до выбранного файла
 
@@ -131,11 +147,13 @@ public class ControllEmployeePage implements Initializable {
         }
         str =text.toString();
     }*/
+    ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList();
     public void BuilderDoc() throws SQLException {
-        InOutGUI enterData = new InOutGUI();
-        enterData.GetDataset1();
-        // создаем список объектов
-        int x = enterData.DataSet1.getMetaData().getColumnCount();
+         listDataset1.clear();
+
+        //InOutGUI enterData = new InOutGUI();
+        //enterData.GetDataset1();
+        //int x = enterData.DataSet1.getMetaData().getColumnCount();
         String a1="";
         String a2="";
         String a3="";
@@ -143,9 +161,7 @@ public class ControllEmployeePage implements Initializable {
         String a5="";
         String a6="";
         String a7="";
-        int i2 =1;
-        ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList();
-
+        /*int i2 =1;
 
         while(enterData.DataSet1.next()){
 
@@ -180,20 +196,80 @@ public class ControllEmployeePage implements Initializable {
                         listDataset1.add(new CreateInstructionDataSet1(a1,a2,a3,a4,a5,a6,a7));
                         i2=1;
                     }
-
             }
+        }*/
+        //тест удалить
+        listDataset1.add(new CreateInstructionDataSet1("й1","ц2","у3","к4","е5","н6","г7"));
+        listDataset1.add(new CreateInstructionDataSet1("кукук1","кукукук2","кукуку3","екеке4","шлшлшлшл5","рпролорл6","аропро7"));
 
-        }
-        for(CreateInstructionDataSet1 list : listDataset1){
-            System.out.println("переменная а1 =  " + list.getAuthor());
-            System.out.println("переменная а2 =  " + list.getCan());
-            System.out.println("переменная а3 =  " + list.getDisp());
-            System.out.println("переменная а4 =  " + list.getFeh());
-            System.out.println("переменная а5 =  " + list.getId());
-            System.out.println("переменная а6 =  " + list.getRank());
-            System.out.println("переменная а7 =  " + list.getName());
-        }
-         
+        Column1.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Column1.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column1.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newId = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setId(newId);
+            System.out.println("внитри метода в пемеренной dataset1.getId() сохраняется это --" + dataset1.getId());
+        });
+        Column2.setCellValueFactory(new PropertyValueFactory<>("author"));
+        Column2.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column2.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newAuthor = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setAuthor(newAuthor);
+        });
+        Column3.setCellValueFactory(new PropertyValueFactory<>("name"));
+        Column3.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column3.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newName = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setName(newName);
+        });
+        Column4.setCellValueFactory(new PropertyValueFactory<>("can"));
+        Column4.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column4.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newCan = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setCan(newCan);
+        });
+        Column5.setCellValueFactory(new PropertyValueFactory<>("feh"));
+        Column5.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column5.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newFeh = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setFeh(newFeh);
+        });
+        Column6.setCellValueFactory(new PropertyValueFactory<>("disp"));
+        Column6.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column6.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newDisp = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setDisp(newDisp);
+        });
+        Column7.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        Column7.setCellFactory(TextFieldTableCell.forTableColumn());
+        Column7.setOnEditCommit((CellEditEvent<CreateInstructionDataSet1,String> event) ->{
+            TablePosition<CreateInstructionDataSet1,String> pos = event.getTablePosition();
+            String newRank = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet1 dataset1 = event.getTableView().getItems().get(row);
+            dataset1.setRank(newRank);
+        });
+        tableVeiw.setItems(listDataset1);
+
+        System.out.println("внитри метода createDoc в переменной listDataset1 сохраняется  --" + listDataset1.get(0).getId());
+
     }
 
     public void getCreateDoc(MouseEvent mouseEvent) throws SQLException {
@@ -202,9 +278,8 @@ public class ControllEmployeePage implements Initializable {
         //ResultDocument.setText(str);
     }
     public void getSaveDoc(MouseEvent mouseEvent) {
-        saveText = ResultDocument.getText();
-        System.out.print(saveText);
-
+        //saveText = ResultDocument.getText();
+        System.out.println("внитри метода saveDoc в пеменной listDataset1.get(0).getId()  сохраняется это --" + listDataset1.get(0).getId() );
     }
 
     @FXML

@@ -13,15 +13,15 @@
     </ImageView>
     <AnchorPane layoutX="334.0" layoutY="57.0" prefHeight="1094.0" prefWidth="1226.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="334.0" AnchorPane.topAnchor="57.0">
       <children>
-         <TableView fx:id="tableVeiw" layoutX="63.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <TableView fx:id="tableVeiw" editable="true" layoutX="63.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <columns>
-             <TableColumn prefWidth="87.99996948242188" text="id" />
-             <TableColumn prefWidth="212.0" text="author" />
-               <TableColumn prefWidth="193.0" text="name" />
-               <TableColumn prefWidth="194.0" text="can" />
-               <TableColumn prefWidth="191.0" text="feh" />
-               <TableColumn prefWidth="170.0" text="disp" />
-               <TableColumn prefWidth="176.0" text="rank" />
+               <TableColumn fx:id="Column1" editable="true" prefWidth="87.99996948242188" text="id" />
+               <TableColumn fx:id="Column2" prefWidth="212.0" text="author" />
+               <TableColumn fx:id="Column3" prefWidth="193.0" text="name" />
+               <TableColumn fx:id="Column4" prefWidth="194.0" text="can" />
+               <TableColumn fx:id="Column5" prefWidth="191.0" text="feh" />
+               <TableColumn fx:id="Column6" prefWidth="170.0" text="disp" />
+               <TableColumn fx:id="Column7" prefWidth="176.0" text="rank" />
            </columns>
          </TableView>
       </children></AnchorPane>
