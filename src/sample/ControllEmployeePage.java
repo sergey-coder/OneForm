@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.beans.property.SimpleSetProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,30 +12,24 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -65,6 +58,13 @@ public class ControllEmployeePage implements Initializable {
     public TableColumn <CreateInstructionDataSet1,String>Column5;
     public TableColumn <CreateInstructionDataSet1,String>Column6;
     public TableColumn <CreateInstructionDataSet1,String>Column7;
+    public TableView tableVeiw2;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column1;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column2;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column3;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column4;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column5;
+    public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column6;
 
     String nameSelectFile;  // тут хранится  абсолютный путь до выбранного файла
 
@@ -121,39 +121,21 @@ public class ControllEmployeePage implements Initializable {
         job.addAll(job1,job2,job3,job4,job5);
         selectJob.getItems().addAll(job);
     }
+    ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList();
+    ObservableList<CreateInstructionDataSet2> listDataset2 = FXCollections.observableArrayList();
+    public void BuilderDoc() throws SQLException {
+        listDataset1.clear();
 
-    //реализация кнопки "создать документ"________________________________________________________
-    /*public void BuilderDoc() throws SQLException {
-        str = "";
-        StringBuilder text = new StringBuilder();
         InOutGUI enterData = new InOutGUI();
         enterData.GetDataset1();
         enterData.GetDataset2();
-        int x = enterData.DataSet1.getMetaData().getColumnCount();
-        int y =1;
 
-        while(enterData.DataSet1.next()){
-            y++;
-            for(int i=1; i<=x;i++){
-                text.append(" " + enterData.DataSet1.getString(i));
-            }
-        }
+        workDataset1(enterData.DataSet1);
+        workDataset2(enterData.DataSet2);
+    }
 
-        int x2 = enterData.DataSet2.getMetaData().getColumnCount();
-        while(enterData.DataSet2.next()){
-            for(int i=1; i<=x2;i++){
-                text.append(" " + enterData.DataSet2.getString(i));
-            }
-        }
-        str =text.toString();
-    }*/
-    ObservableList<CreateInstructionDataSet1> listDataset1 = FXCollections.observableArrayList();
-    public void BuilderDoc() throws SQLException {
-         listDataset1.clear();
-
-        //InOutGUI enterData = new InOutGUI();
-        //enterData.GetDataset1();
-        //int x = enterData.DataSet1.getMetaData().getColumnCount();
+        private void workDataset1(ResultSet dataSet1) throws SQLException {
+        int x = dataSet1.getMetaData().getColumnCount();
         String a1="";
         String a2="";
         String a3="";
@@ -161,34 +143,34 @@ public class ControllEmployeePage implements Initializable {
         String a5="";
         String a6="";
         String a7="";
-        /*int i2 =1;
+        int i2 =1;
 
-        while(enterData.DataSet1.next()){
+        while(dataSet1.next()){
 
             for(int i=1; i<=x;i++){
                     switch (i2){
-                        case 1 : if(enterData.DataSet1.getString(i)==null){
+                        case 1 : if(dataSet1.getString(i)==null){
                             a1 = "null"; break;
-                        } a1 = enterData.DataSet1.getString(i); break;
+                        } a1 = dataSet1.getString(i); break;
 
-                        case 2 : if(enterData.DataSet1.getString(i)==null){
+                        case 2 : if(dataSet1.getString(i)==null){
                             a2 = "null"; break;
-                        } a2 = enterData.DataSet1.getString(i); break;
-                        case 3 : if(enterData.DataSet1.getString(i)==null){
+                        } a2 = dataSet1.getString(i); break;
+                        case 3 : if(dataSet1.getString(i)==null){
                             a3 = "null"; break;
-                        }a3 = enterData.DataSet1.getString(i); break;
-                        case 4 : if(enterData.DataSet1.getString(i)==null){
+                        }a3 = dataSet1.getString(i); break;
+                        case 4 : if(dataSet1.getString(i)==null){
                             a4 = "null"; break;
-                        }a4 = enterData.DataSet1.getString(i); break;
-                        case 5 : if(enterData.DataSet1.getString(i)==null){
+                        }a4 = dataSet1.getString(i); break;
+                        case 5 : if(dataSet1.getString(i)==null){
                             a5 = "null"; break;
-                        } a5 = enterData.DataSet1.getString(i); break;
-                        case 6 : if(enterData.DataSet1.getString(i)==null){
+                        } a5 = dataSet1.getString(i); break;
+                        case 6 : if(dataSet1.getString(i)==null){
                             a6 = "null"; break;
-                        } a6 = enterData.DataSet1.getString(i); break;
-                        case 7 :if(enterData.DataSet1.getString(i)==null){
+                        } a6 = dataSet1.getString(i); break;
+                        case 7 :if(dataSet1.getString(i)==null){
                             a7 = "null"; break;
-                        } a7 = enterData.DataSet1.getString(i); break;
+                        } a7 = dataSet1.getString(i); break;
                         default: break;
                     }
                     i2++;
@@ -197,10 +179,10 @@ public class ControllEmployeePage implements Initializable {
                         i2=1;
                     }
             }
-        }*/
+        }
         //тест удалить
-        listDataset1.add(new CreateInstructionDataSet1("й1","ц2","у3","к4","е5","н6","г7"));
-        listDataset1.add(new CreateInstructionDataSet1("кукук1","кукукук2","кукуку3","екеке4","шлшлшлшл5","рпролорл6","аропро7"));
+        //listDataset1.add(new CreateInstructionDataSet1("й1","ц2","у3","к4","е5","н6","г7"));
+        //listDataset1.add(new CreateInstructionDataSet1("кукук1","кукукук2","кукуку3","екеке4","шлшлшлшл5","рпролорл6","аропро7"));
 
         Column1.setCellValueFactory(new PropertyValueFactory<>("id"));
         Column1.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -269,6 +251,114 @@ public class ControllEmployeePage implements Initializable {
         tableVeiw.setItems(listDataset1);
 
         System.out.println("внитри метода createDoc в переменной listDataset1 сохраняется  --" + listDataset1.get(0).getId());
+
+    }
+
+    private void workDataset2(ResultSet dataSet2) throws SQLException {
+        int x = dataSet2.getMetaData().getColumnCount();
+        String a1="";
+        String a2="";
+        String a3="";
+        String a4="";
+        String a5="";
+        String a6="";
+
+        int i2 =1;
+
+        while(dataSet2.next()){
+
+            for(int i=1; i<=x;i++){
+                switch (i2){
+                    case 1 : if(dataSet2.getString(i)==null){
+                        a1 = "null"; break;
+                    } a1 = dataSet2.getString(i); break;
+
+                    case 2 : if(dataSet2.getString(i)==null){
+                        a2 = "null"; break;
+                    } a2 = dataSet2.getString(i); break;
+                    case 3 : if(dataSet2.getString(i)==null){
+                        a3 = "null"; break;
+                    }a3 = dataSet2.getString(i); break;
+                    case 4 : if(dataSet2.getString(i)==null){
+                        a4 = "null"; break;
+                    }a4 = dataSet2.getString(i); break;
+                    case 5 : if(dataSet2.getString(i)==null){
+                        a5 = "null"; break;
+                    } a5 = dataSet2.getString(i); break;
+                    case 6 : if(dataSet2.getString(i)==null){
+                        a6 = "null"; break;
+                    } a6 = dataSet2.getString(i); break;
+                    default: break;
+                }
+                i2++;
+                if(i2==7){
+                    listDataset2.add(new CreateInstructionDataSet2(a1,a2,a3,a4,a5,a6));
+                    i2=1;
+                }
+            }
+        }
+        //тест удалить
+        //listDataset1.add(new CreateInstructionDataSet1("й1","ц2","у3","к4","е5","н6","г7"));
+        //listDataset1.add(new CreateInstructionDataSet1("кукук1","кукукук2","кукуку3","екеке4","шлшлшлшл5","рпролорл6","аропро7"));
+        tableVeiw2_Column1.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableVeiw2_Column1.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column1.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newId = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setId(newId);
+            System.out.println("внитри метода в пемеренной dataset2.getId() сохраняется это --" + dataset2.getId());
+        });
+        tableVeiw2_Column2.setCellValueFactory(new PropertyValueFactory<>("doc_id"));
+        tableVeiw2_Column2.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column2.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newDoc_id = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setDoc_id(newDoc_id);
+        });
+
+        tableVeiw2_Column3.setCellValueFactory(new PropertyValueFactory<>("lem_num"));
+        tableVeiw2_Column3.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column3.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newlem_num = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setlem_num(newlem_num);
+        });
+        tableVeiw2_Column4.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        tableVeiw2_Column4.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column4.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newRank = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setRank(newRank);
+        });
+        tableVeiw2_Column5.setCellValueFactory(new PropertyValueFactory<>("disp"));
+        tableVeiw2_Column5.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column5.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newDisp = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setDisp(newDisp);
+        });
+        tableVeiw2_Column6.setCellValueFactory(new PropertyValueFactory<>("picf"));
+        tableVeiw2_Column6.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableVeiw2_Column6.setOnEditCommit((CellEditEvent<CreateInstructionDataSet2,String> event) ->{
+            TablePosition<CreateInstructionDataSet2,String> pos = event.getTablePosition();
+            String newPicf = event.getNewValue();
+            int row = pos.getRow();
+            CreateInstructionDataSet2 dataset2 = event.getTableView().getItems().get(row);
+            dataset2.setRank(newPicf);
+        });
+        tableVeiw2.setItems(listDataset2);
+
+        System.out.println("внитри метода createDoc в переменной listDataset2 сохраняется  --" + listDataset2.get(0).getId());
 
     }
 
