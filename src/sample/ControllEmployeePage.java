@@ -48,7 +48,7 @@ public class ControllEmployeePage implements Initializable {
     @FXML
     public ChoiceBox<String> selectJob;
     @FXML
-    public Text nameSelectFiles;
+    public TextArea nameSelectFiles;
     public Button SaveDoc;
     public TableView tableVeiw;
     public TableColumn <CreateInstructionDataSet1,String> Column1;
@@ -74,6 +74,7 @@ public class ControllEmployeePage implements Initializable {
     String saveText;// текст сохраненный с главной страницы  кнопкой сохранить изменения
 
     // реализация кнопки "загрузить документ"__________________________________________________________________
+    StringBuilder selectDoc = new StringBuilder();
 
     @FXML
     public void getFileChooser(MouseEvent mouseEvent) throws IOException {
@@ -88,7 +89,8 @@ public class ControllEmployeePage implements Initializable {
             selectFile(file);
             List<File> files = Arrays.asList(file);
             printLog(textArea, files);
-            nameSelectFiles.setText("Выбран документ: " + file.getName());
+            selectDoc.append("Выбран документ: " + file.getName() + "\n");
+            nameSelectFiles.setText(selectDoc.toString());
         }
     }
     private void printLog(TextArea textArea, List<File> files) {
@@ -403,15 +405,15 @@ public class ControllEmployeePage implements Initializable {
     }
 
     @FXML
-    public void goalMause3(MouseEvent mouseDragEvent) {createDoc.setStyle("-fx-background-color: #f209e2");}
+    public void goalMause3(MouseEvent mouseDragEvent) {createDoc.setStyle("-fx-background-color: #FFA26B");}
 
 
     @FXML
-    public void goalMause4(MouseEvent mouseDragEvent) {SaveDoc.setStyle("-fx-background-color: #f209e2");}
+    public void goalMause4(MouseEvent mouseDragEvent) {SaveDoc.setStyle("-fx-background-color: #FFA26B");}
 
     @FXML
     public void notGoalMause3(MouseEvent mouseEvent) {
-        createDoc.setStyle("-fx-background-color: #098BF3");
-        SaveDoc.setStyle("-fx-background-color: #098BF3");
+        createDoc.setStyle("-fx-background-color: #FF9455");
+        SaveDoc.setStyle("-fx-background-color: #FF9455");
     }
 }
