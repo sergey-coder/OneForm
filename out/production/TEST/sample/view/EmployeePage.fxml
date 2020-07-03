@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1800.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllEmployeePage">
-    <AnchorPane layoutX="334.0" layoutY="135.0" prefHeight="1016.0" prefWidth="1226.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="135.0">
+    <AnchorPane layoutX="417.0" layoutY="110.0" prefHeight="1041.0" prefWidth="1372.0" style="-fx-background-color: #CCCCCC;" AnchorPane.leftAnchor="417.0" AnchorPane.topAnchor="110.0">
       <children>
          <TabPane layoutX="131.0" layoutY="63.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <tabs>
@@ -63,7 +63,7 @@
    </AnchorPane>
    <AnchorPane layoutX="89.0" layoutY="241.0" prefHeight="406.0" prefWidth="406.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="96.0">
       <children>
-          <Button fx:id="createDoc" layoutX="83.0" layoutY="678.0" mnemonicParsing="false" onMouseClicked="#getCreateDoc" onMouseEntered="#goalMause3" onMouseExited="#notGoalMause3" prefHeight="48.0" prefWidth="314.0" style="-fx-background-color: #FF9455; -fx-border-radius: 50;" text="СОЗДАТЬ ФОРМУ" textFill="WHITE" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="693.0">
+          <Button fx:id="createDoc" layoutX="83.0" layoutY="678.0" mnemonicParsing="false" onMouseClicked="#getCreateDoc" onMouseEntered="#goalMause3" onMouseExited="#notGoalMause3" prefHeight="48.0" prefWidth="314.0" style="-fx-background-color: #FF9455; -fx-border-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);" text="СОЗДАТЬ ФОРМУ" textFill="WHITE" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="693.0">
               <font>
                   <Font size="14.0" />
               </font>
@@ -74,7 +74,7 @@
               </font>
          </Button>
           <ChoiceBox fx:id="selectJob" layoutX="124.0" layoutY="300.0" prefHeight="48.0" prefWidth="298.0" AnchorPane.leftAnchor="62.0" AnchorPane.topAnchor="166.0" />
-          <Button fx:id="SaveDoc" layoutX="48.0" layoutY="770.0" mnemonicParsing="false" onMouseClicked="#getSaveDoc" onMouseEntered="#goalMause4" onMouseExited="#notGoalMause3" prefHeight="48.0" prefWidth="314.0" style="-fx-background-color: #FF9455; -fx-border-radius: 8;" text="СОХРАНИТЬ ИЗМЕНЕНИЯ" textFill="WHITE" AnchorPane.leftAnchor="48.0">
+          <Button fx:id="SaveDoc" layoutX="48.0" layoutY="770.0" mnemonicParsing="false" onMouseClicked="#getSaveDoc" onMouseEntered="#goalMause4" onMouseExited="#notGoalMause3" prefHeight="48.0" prefWidth="314.0" style="-fx-background-color: #FF9455; -fx-border-radius: 8;-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);" text="СОХРАНИТЬ ИЗМЕНЕНИЯ" textFill="WHITE" AnchorPane.leftAnchor="48.0">
               <font>
                   <Font size="14.0" />
               </font>
@@ -93,7 +93,7 @@
             <font>
                <Font size="16.0" />
             </font></Text>
-         <TextArea fx:id="nameSelectFiles" layoutX="53.0" layoutY="305.0" prefHeight="273.0" prefWidth="298.0" AnchorPane.leftAnchor="62.0" />
+         <TextFlow fx:id="selectFileDoc" layoutX="69.0" layoutY="313.0" prefHeight="115.0" prefWidth="298.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="62.0" />
       </children>
    </AnchorPane>
 

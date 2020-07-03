@@ -4,19 +4,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class CreateInstructionDataSet1 {
 
-    /*private SERIAL id;
-
-    private varchar author;
-
-    private varchar name;
-
-    private real can;
-
-    private real feh;
-
-    private real disp;
-
-    private real rank;*/
     private SimpleStringProperty id;
 
     private SimpleStringProperty author;

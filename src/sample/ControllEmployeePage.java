@@ -14,8 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -48,7 +51,7 @@ public class ControllEmployeePage implements Initializable {
     @FXML
     public ChoiceBox<String> selectJob;
     @FXML
-    public TextArea nameSelectFiles;
+    //public TextArea nameSelectFiles;
     public Button SaveDoc;
     public TableView tableVeiw;
     public TableColumn <CreateInstructionDataSet1,String> Column1;
@@ -65,16 +68,17 @@ public class ControllEmployeePage implements Initializable {
     public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column4;
     public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column5;
     public TableColumn <CreateInstructionDataSet2,String> tableVeiw2_Column6;
+    public TextFlow selectFileDoc;
 
     String nameSelectFile;  // тут хранится  абсолютный путь до выбранного файла
 
     String selectJobName;// тут мы храним выбранное значение из списка должностей
 
-    String str;//тут находится преобразованный в string результат обхода DataSet2 DataSet1
-    String saveText;// текст сохраненный с главной страницы  кнопкой сохранить изменения
+    //String str;//тут находится преобразованный в string результат обхода DataSet2 DataSet1
+    //String saveText;// текст сохраненный с главной страницы  кнопкой сохранить изменения
 
     // реализация кнопки "загрузить документ"__________________________________________________________________
-    StringBuilder selectDoc = new StringBuilder();
+
 
     @FXML
     public void getFileChooser(MouseEvent mouseEvent) throws IOException {
@@ -89,8 +93,14 @@ public class ControllEmployeePage implements Initializable {
             selectFile(file);
             List<File> files = Arrays.asList(file);
             printLog(textArea, files);
-            selectDoc.append("Выбран документ: " + file.getName() + "\n");
-            nameSelectFiles.setText(selectDoc.toString());
+            //nameSelectFiles.appendText("Выбран документ: " + file.getName() + "\n");
+            Text text = new Text();
+            ImageView image = new ImageView(new Image(String.valueOf(getClass().getResource("image/file2.png"))));
+            image.setFitWidth(16.00);
+            image.setFitHeight(20.00);
+            text.setText(file.getName() + "\n");
+            selectFileDoc.getChildren().addAll(image,text);
+
         }
     }
     private void printLog(TextArea textArea, List<File> files) {
@@ -103,7 +113,7 @@ public class ControllEmployeePage implements Initializable {
     }
     private void selectFile(File file) {
         nameSelectFile = file.getAbsolutePath();
-    }
+    } // - тут сохраняется только имя первого файла, будет ли их несколько?
 
     // реализация выпадающего спика для выбора должности________________________________________________
 
@@ -413,7 +423,7 @@ public class ControllEmployeePage implements Initializable {
 
     @FXML
     public void notGoalMause3(MouseEvent mouseEvent) {
-        createDoc.setStyle("-fx-background-color: #FF9455");
-        SaveDoc.setStyle("-fx-background-color: #FF9455");
+        createDoc.setStyle("-fx-background-color: #FF9455; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);");
+        SaveDoc.setStyle("-fx-background-color: #FF9455; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);");
     }
 }
