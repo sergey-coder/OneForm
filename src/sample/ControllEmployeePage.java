@@ -47,7 +47,7 @@ public class ControllEmployeePage implements Initializable {
     @FXML
     public TextArea ResultDocument;
     @FXML
-    public Button battonLoad;
+    public ImageView battonLoad;
     @FXML
     public ChoiceBox<String> selectJob;
     @FXML
@@ -415,15 +415,23 @@ public class ControllEmployeePage implements Initializable {
     }
 
     @FXML
-    public void goalMause3(MouseEvent mouseDragEvent) {createDoc.setStyle("-fx-background-color: #FFA26B");}
+    public void goalMause3(MouseEvent mouseDragEvent) {createDoc.setStyle("-fx-background-color: #057BD9");}
 
 
     @FXML
-    public void goalMause4(MouseEvent mouseDragEvent) {SaveDoc.setStyle("-fx-background-color: #FFA26B");}
+    public void goalMause4(MouseEvent mouseDragEvent) {SaveDoc.setStyle("-fx-background-color: #057BD9; -fx-text-fill: #FFFFFF");}
 
     @FXML
     public void notGoalMause3(MouseEvent mouseEvent) {
-        createDoc.setStyle("-fx-background-color: #FF9455; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);");
-        SaveDoc.setStyle("-fx-background-color: #FF9455; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);");
+        createDoc.setStyle("-fx-background-color: #098BF3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 2, 2);");
+        SaveDoc.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: #098BF3");
+    }
+
+    public void goalMause5(MouseEvent mouseEvent) {
+        battonLoad.setImage(new Image(String.valueOf(getClass().getResource("image/OneForm/add_light.png"))));
+    }
+
+    public void notGoalMause5(MouseEvent mouseEvent) {
+        battonLoad.setImage(new Image(String.valueOf(getClass().getResource("image/OneForm/add_dark.png"))));
     }
 }

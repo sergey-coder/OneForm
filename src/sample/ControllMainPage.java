@@ -133,13 +133,13 @@ public class ControllMainPage {
     @FXML
     public void goalMause2(MouseEvent mouseDragEvent) {privacyPolicy.setStyle("-fx-text-fill: #075eeb");}
     @FXML
-    public void goalMause3(MouseEvent mouseDragEvent) {enterBatton.setStyle("-fx-background-color: #2889b5");}
+    public void goalMause3(MouseEvent mouseDragEvent) {enterBatton.setStyle("-fx-background-color: #075eeb");}
 
     @FXML
     public void notGoalMause(MouseEvent mouseEvent) {
         privacyPolicy.setStyle("-fx-text-fill: #078aed");
         problemEntered.setStyle("-fx-text-fill: #078aed");
-        enterBatton.setStyle("-fx-background-color: #098BF3");
+        enterBatton.setStyle("-fx-background-color: #098BF3;-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.24), 0, 0, 1, 1);");
 
     }
 }
