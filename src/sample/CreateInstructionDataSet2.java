@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class CreateInstructionDataSet2 {
 
-
     private SimpleStringProperty id;
 
     private SimpleStringProperty doc_id;
@@ -17,8 +16,6 @@ public class CreateInstructionDataSet2 {
 
     private SimpleStringProperty picf;
 
-
-
     public CreateInstructionDataSet2(String id, String doc_id, String lem_num, String rank, String disp, String picf) {
         this.id = new SimpleStringProperty(id);
         this.doc_id = new SimpleStringProperty(doc_id);
@@ -27,9 +24,6 @@ public class CreateInstructionDataSet2 {
         this.disp = new SimpleStringProperty(disp);
         this.rank = new SimpleStringProperty(rank);
     }
-
-
-
 
     public String getId() {
         return id.get();

@@ -14,14 +14,12 @@ public class CreatTextField {
     public TextField TF15;
     private List<TextField> listTF = new ArrayList<TextField>();
 
-
-
-    public List<TextField> getListTF(){
+    public List<TextField> getListTF() {
         return this.listTF;
     }
 
-    public void addTF(){
-        if(listTF.isEmpty()) {
+    public void addTF() {
+        if (listTF.isEmpty()) {
             listTF.add(TF10);
             listTF.add(TF11);
             listTF.add(TF12);

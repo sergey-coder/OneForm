@@ -18,7 +18,7 @@ public class CreateInstructionDataSet1 {
 
     private SimpleStringProperty rank;
 
-    public CreateInstructionDataSet1(String id,String author, String name, String can, String feh, String disp, String rank) {
+    public CreateInstructionDataSet1(String id, String author, String name, String can, String feh, String disp, String rank) {
         this.id = new SimpleStringProperty(id);
         this.author = new SimpleStringProperty(author);
         this.name = new SimpleStringProperty(name);
@@ -27,9 +27,6 @@ public class CreateInstructionDataSet1 {
         this.disp = new SimpleStringProperty(disp);
         this.rank = new SimpleStringProperty(rank);
     }
-
-
-
 
     public String getId() {
         return id.get();
@@ -44,7 +41,7 @@ public class CreateInstructionDataSet1 {
     }
 
     public void setAuthor(String value) {
-         author.set(value);
+        author.set(value);
     }
 
     public String getName() {

@@ -12,14 +12,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ControllPrivacyPolicy {
+
     @FXML
     public Button battonBack;
 
     @FXML
     public void getMainPage(MouseEvent mouseEvent) throws IOException {
 
-        //Stage stageOld = (Stage) battonBack.getScene().getWindow();
-        //stageOld.close();
         battonBack.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("view/mainPage.fxml"));
         Stage stage = new Stage();
